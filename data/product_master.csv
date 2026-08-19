@@ -1,7 +1,11 @@
-Product ID,SKU,Product Name,Category,Reorder Threshold,Target Minimum Inventory
-P001,SLP-CMF-01,Sleepsia Contour Memory Foam Pillow,Memory Foam Pillows,150,500
-P002,SLP-COP-02,Sleepsia Cervical Orthopedic Pillow,Orthopedic Pillows,120,400
-P003,SLP-BGP-03,Sleepsia Bamboo Gel Infused Pillow,Gel Infused Pillows,100,350
-P004,SLP-MPS-04,Sleepsia Multi-Position Shredded Pillow,Shredded Foam Pillows,80,300
-P005,SLP-VEM-05,Sleepsia Premium Velvet Eye Mask & Pillow Set,Sleep Accessories,60,250
-P006,SLP-KSW-06,Sleepsia Knee Support Wedge Pillow,Ergonomic Cushions,50,200
+product_id,sku,product_name,category,reorder_threshold_units,target_min_inventory_units
+P001,SLP-BAM-01,Sleepsia Bamboo Memory Foam Cervical Pillow for Neck Pain Relief,Cervical Pillow,180,250
+P002,SLP-GEL-02,Sleepsia Orthopedic Cooling Gel Memory Foam Contour Pillow,Gel Pillow,220,300
+P003,SLP-SHR-03,Sleepsia Adjustable Shredded Memory Foam Pillow for Sleeping,Memory Foam Pillow,160,220
+P004,SLP-MIC-04,Sleepsia Premium Microfiber Breathable Soft Pillow (Set of 2),Contour Pillow,180,250
+P005,SLP-PREG-05,Sleepsia C-Shaped Full Body Pregnancy Pillow for Back Support,Orthopedic Pillow,200,270
+P006,SLP-LUM-06,Sleepsia Ergonomic Lumbar Support Memory Foam Cushion for Chair,Bamboo Pillow,150,200
+P007,SLP-TRV-07,Sleepsia Memory Foam Neck Travel Pillow with Velvet Cover,Cooling Pillow,180,240
+P008,SLP-KNEE-08,Sleepsia Orthopedic Knee Support Pillow for Side Sleepers,Travel Pillow,120,170
+P009,SLP-COOL-09,Sleepsia Dual Sided Cooling & Warmth Memory Foam Pillow,Memory Foam Pillow,160,220
+P010,SLP-KIDS-10,Sleepsia Ergonomic Kids Memory Foam Pillow for Spinal Alignment,Cervical Pillow,150,200

@@ -1,49 +1,71 @@
-date,product_id,platform,platform_product_id,average_rating,total_review_count,new_reviews_today,negative_reviews_today,sentiment_score
-2026-08-19,P001,Amazon,B08XYZ01AA,4.42,3420,12,1,0.88
-2026-08-19,P001,Flipkart,PILGFK01AA,4.35,2180,8,1,0.84
-2026-08-19,P001,Blinkit,BLK-892101,4.50,620,4,0,0.92
-2026-08-19,P001,Instamart,INSTA-334101,4.48,480,3,0,0.90
-2026-08-19,P002,Amazon,B08XYZ02BB,4.38,1890,7,1,0.85
-2026-08-19,P002,Flipkart,PILGFK02BB,4.28,1240,5,1,0.81
-2026-08-19,P002,Blinkit,BLK-892102,4.45,390,3,0,0.89
-2026-08-19,P002,Instamart,INSTA-334102,4.40,310,2,0,0.86
-2026-08-19,P003,Amazon,B08XYZ03CC,4.25,1420,5,1,0.78
-2026-08-19,P003,Flipkart,PILGFK03CC,4.18,980,4,1,0.75
-2026-08-19,P003,Blinkit,BLK-892103,4.30,220,1,0,0.82
-2026-08-19,P003,Instamart,INSTA-334103,4.32,180,1,0,0.83
-2026-08-19,P004,Amazon,B08XYZ04DD,4.12,890,3,1,0.72
-2026-08-19,P004,Flipkart,PILGFK04DD,4.05,640,2,1,0.69
-2026-08-19,P004,Blinkit,BLK-892104,4.20,150,1,0,0.76
-2026-08-19,P004,Instamart,INSTA-334104,4.10,95,0,0,0.70
-2026-08-19,P005,Amazon,B08XYZ05EE,4.60,780,2,0,0.94
-2026-08-19,P005,Flipkart,PILGFK05EE,4.52,510,2,0,0.91
-2026-08-19,P005,Blinkit,BLK-892105,4.65,110,1,0,0.96
-2026-08-19,P005,Instamart,INSTA-334105,4.58,85,1,0,0.93
-2026-08-19,P006,Amazon,B08XYZ06FF,4.15,620,2,1,0.73
-2026-08-19,P006,Flipkart,PILGFK06FF,4.08,430,1,1,0.70
-2026-08-19,P006,Blinkit,BLK-892106,4.22,90,1,0,0.78
-2026-08-19,P006,Instamart,INSTA-334106,4.18,70,0,0,0.75
-2026-08-18,P001,Amazon,B08XYZ01AA,4.42,3408,10,1,0.88
-2026-08-18,P001,Flipkart,PILGFK01AA,4.35,2172,7,0,0.85
-2026-08-18,P001,Blinkit,BLK-892101,4.50,616,3,0,0.92
-2026-08-18,P001,Instamart,INSTA-334101,4.48,477,2,0,0.90
-2026-08-18,P002,Amazon,B08XYZ02BB,4.38,1883,6,0,0.86
-2026-08-18,P002,Flipkart,PILGFK02BB,4.28,1235,4,1,0.80
-2026-08-18,P002,Blinkit,BLK-892102,4.45,387,2,0,0.89
-2026-08-18,P002,Instamart,INSTA-334102,4.40,308,2,0,0.86
-2026-08-18,P003,Amazon,B08XYZ03CC,4.25,1415,4,1,0.77
-2026-08-18,P003,Flipkart,PILGFK03CC,4.18,976,3,0,0.76
-2026-08-18,P003,Blinkit,BLK-892103,4.30,219,1,0,0.82
-2026-08-18,P003,Instamart,INSTA-334103,4.32,179,1,0,0.83
-2026-08-18,P004,Amazon,B08XYZ04DD,4.12,887,2,0,0.73
-2026-08-18,P004,Flipkart,PILGFK04DD,4.05,638,2,1,0.68
-2026-08-18,P004,Blinkit,BLK-892104,4.20,149,1,0,0.76
-2026-08-18,P004,Instamart,INSTA-334104,4.10,95,0,0,0.70
-2026-08-18,P005,Amazon,B08XYZ05EE,4.60,778,2,0,0.94
-2026-08-18,P005,Flipkart,PILGFK05EE,4.52,508,1,0,0.91
-2026-08-18,P005,Blinkit,BLK-892105,4.65,109,1,0,0.96
-2026-08-18,P005,Instamart,INSTA-334105,4.58,84,1,0,0.93
-2026-08-18,P006,Amazon,B08XYZ06FF,4.15,618,1,0,0.74
-2026-08-18,P006,Flipkart,PILGFK06FF,4.08,429,1,0,0.71
-2026-08-18,P006,Blinkit,BLK-892106,4.22,89,1,0,0.78
-2026-08-18,P006,Instamart,INSTA-334106,4.18,70,0,0,0.75
+record_date,platform,sku,rating,review_count,positive_sentiment_pct,top_pain_point,top_praise
+2026-08-06,Amazon,SLP-BAM-01,4.42,3420,87.4,Initial chemical smell,Instant cervical neck pain relief
+2026-08-07,Amazon,SLP-BAM-01,4.42,3438,87.6,Firmness adjustment time,Very breathable cover
+2026-08-08,Amazon,SLP-BAM-01,4.43,3461,88.1,Initial odor,Excellent posture support
+2026-08-09,Amazon,SLP-BAM-01,4.43,3480,88.0,Zipper durability,High density foam
+2026-08-10,Amazon,SLP-BAM-01,4.44,3502,88.5,Slightly high for stomach sleepers,Best memory foam pillow
+2026-08-11,Amazon,SLP-BAM-01,4.44,3525,88.4,Slow bounce back in cold,Relieved chronic morning stiffness
+2026-08-12,Amazon,SLP-BAM-01,4.45,3550,88.9,Cover washing instructions,Cool night sleep
+2026-08-13,Amazon,SLP-BAM-01,4.45,3578,89.1,Initial smell takes 2 days,Orthopedic surgeon recommended
+2026-08-14,Amazon,SLP-BAM-01,4.45,3602,89.0,Size smaller than standard king,Perfect contour shape
+2026-08-15,Amazon,SLP-BAM-01,4.46,3634,89.5,Too firm on day 1,Amazing value for money
+2026-08-16,Amazon,SLP-BAM-01,4.46,3671,89.8,Off-gassing smell,Helped cervical spondylosis
+2026-08-17,Amazon,SLP-BAM-01,4.47,3712,90.2,Zipper pull tab,Best sleep in years
+2026-08-18,Amazon,SLP-BAM-01,4.47,3758,90.4,Outer cover stain resistance,No neck pain waking up
+2026-08-19,Amazon,SLP-BAM-01,4.48,3810,90.7,Packaging box bent,Pillow stays cool all night
+2026-08-06,Amazon,SLP-GEL-02,4.31,2150,82.3,Gel surface warms after 3 hours,Great cooling touch initially
+2026-08-07,Amazon,SLP-GEL-02,4.31,2164,82.5,Contour groove too deep,Side sleeper support
+2026-08-08,Amazon,SLP-GEL-02,4.32,2178,82.8,Heavy pillow weight,Head stays elevated
+2026-08-09,Amazon,SLP-GEL-02,4.32,2191,83.0,Chemical smell,Solid spine alignment
+2026-08-10,Amazon,SLP-GEL-02,4.32,2205,83.1,Hard gel layer in winter,Immediate cooling effect
+2026-08-11,Amazon,SLP-GEL-02,4.33,2220,83.4,Gel pad adhesion,Sweat-free sleeping
+2026-08-12,Amazon,SLP-GEL-02,4.33,2234,83.5,Pillow thickness,Relieved shoulder ache
+2026-08-13,Amazon,SLP-GEL-02,4.33,2251,83.7,Foam firmness,Deep restful contour
+2026-08-14,Amazon,SLP-GEL-02,4.34,2268,84.0,Takes week to adjust,Great summer pillow
+2026-08-15,Amazon,SLP-GEL-02,4.34,2289,84.2,Smell on opening,Relieved migraine pressure
+2026-08-16,Amazon,SLP-GEL-02,4.35,2315,84.6,Cover slippage,Premium gel cooling sheet
+2026-08-17,Amazon,SLP-GEL-02,4.35,2340,84.8,Weight of pillow,Neck soreness gone
+2026-08-18,Amazon,SLP-GEL-02,4.36,2372,85.2,Foam density too hard,Wake up refreshed
+2026-08-19,Amazon,SLP-GEL-02,4.36,2405,85.5,Cover zipper quality,Excellent build quality
+2026-08-06,Flipkart,SLP-BAM-01,4.38,2890,85.2,Delivery package pressed foam,Great ergonomic design
+2026-08-07,Flipkart,SLP-BAM-01,4.38,2905,85.4,Smell needs 24hr airing,Good support for neck
+2026-08-08,Flipkart,SLP-BAM-01,4.39,2922,85.8,Pillowcase tightness,Affordable orthotic pillow
+2026-08-09,Flipkart,SLP-BAM-01,4.39,2940,85.9,Firmness,Super comfortable foam
+2026-08-10,Flipkart,SLP-BAM-01,4.39,2958,86.0,Initial rubber odor,Very fast relief from pain
+2026-08-11,Flipkart,SLP-BAM-01,4.40,2976,86.3,Size measurement,Soft washable cover
+2026-08-12,Flipkart,SLP-BAM-01,4.40,2995,86.5,Slow inflation from vacuum,Worth every rupee
+2026-08-13,Flipkart,SLP-BAM-01,4.41,3014,86.9,Stitch loose on corner,Soft yet supportive
+2026-08-14,Flipkart,SLP-BAM-01,4.41,3035,87.0,Too bulky for travel,Doctor recommended
+2026-08-15,Flipkart,SLP-BAM-01,4.42,3060,87.4,Slight chemical smell,Helped neck spasm
+2026-08-16,Flipkart,SLP-BAM-01,4.42,3090,87.6,Inner lining thin,Perfect height for back sleeping
+2026-08-17,Flipkart,SLP-BAM-01,4.43,3125,88.1,Cover zipper,Sound sleep throughout night
+2026-08-18,Flipkart,SLP-BAM-01,4.43,3165,88.3,Foam firmness,Awesome packaging and product
+2026-08-19,Flipkart,SLP-BAM-01,4.44,3210,88.6,Box crushed in transit,Exceptional quality pillow
+2026-08-06,Blinkit,SLP-BAM-01,4.52,620,92.1,Price high for 10-min delivery,Arrived in 12 minutes hot relief
+2026-08-07,Blinkit,SLP-BAM-01,4.52,631,92.3,Bag was crinkled,Emergency neck relief
+2026-08-08,Blinkit,SLP-BAM-01,4.53,644,92.5,Slight smell,Instant comfort
+2026-08-09,Blinkit,SLP-BAM-01,4.53,658,92.6,Pillow weight,Lifesaver when neck sprained
+2026-08-10,Blinkit,SLP-BAM-01,4.54,670,92.9,High price tag,Super soft bamboo cover
+2026-08-11,Blinkit,SLP-BAM-01,4.54,682,93.0,Zipper feels small,Best quick commerce purchase
+2026-08-12,Blinkit,SLP-BAM-01,4.55,695,93.3,Smell on open,Instant pillow upgrade
+2026-08-13,Blinkit,SLP-BAM-01,4.55,709,93.4,No extra pillowcase,Genuine high quality
+2026-08-14,Blinkit,SLP-BAM-01,4.55,722,93.5,Bulky delivery pouch,Slept like baby
+2026-08-15,Blinkit,SLP-BAM-01,4.56,738,93.8,Firmness on day 1,Superfast delivery and premium feel
+2026-08-16,Blinkit,SLP-BAM-01,4.56,755,94.0,Costly,Cured morning headache
+2026-08-17,Blinkit,SLP-BAM-01,4.57,775,94.3,Packaging tape residue,Gamechanger for neck ache
+2026-08-18,Blinkit,SLP-BAM-01,4.57,798,94.5,Needs airing,Quick delivery amazing quality
+2026-08-19,Blinkit,SLP-BAM-01,4.58,825,94.8,Outer plastic pouch,Cannot sleep without this now
+2026-08-06,Instamart,SLP-BAM-01,4.49,480,90.5,Outer packaging wet from ice pack,Delivered in 15 mins
+2026-08-07,Instamart,SLP-BAM-01,4.49,491,90.7,Smell when unbagged,Great memory foam
+2026-08-08,Instamart,SLP-BAM-01,4.50,503,91.0,Costly vs retail,Very comfortable neck curve
+2026-08-09,Instamart,SLP-BAM-01,4.50,514,91.2,Firm feel,Woke up pain free
+2026-08-10,Instamart,SLP-BAM-01,4.51,526,91.4,Zipper small,High quality cloth
+2026-08-11,Instamart,SLP-BAM-01,4.51,539,91.6,Requires airing out,Immediate neck tension relief
+2026-08-12,Instamart,SLP-BAM-01,4.52,551,91.8,Inner cover stitching,Soft contour
+2026-08-13,Instamart,SLP-BAM-01,4.52,564,92.0,Slight chemical odor,Fast delivery when hurt neck
+2026-08-14,Instamart,SLP-BAM-01,4.52,577,92.1,Price tag,Top grade memory foam
+2026-08-15,Instamart,SLP-BAM-01,4.53,592,92.4,Bulky bag,Great support
+2026-08-16,Instamart,SLP-BAM-01,4.53,608,92.6,Odor needs half day,Life saver pillow
+2026-08-17,Instamart,SLP-BAM-01,4.54,625,92.9,Firmness,Premium soft fabric
+2026-08-18,Instamart,SLP-BAM-01,4.54,644,93.1,Pouch zipper,No more stiffness
+2026-08-19,Instamart,SLP-BAM-01,4.55,668,93.4,Carrying handle broke,Super comfortable contour

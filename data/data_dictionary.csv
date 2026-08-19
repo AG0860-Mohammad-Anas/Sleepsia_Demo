@@ -1,24 +1,7 @@
-field_name,table_name,data_type,description,calculation_formula,notes
-date,all_reports,string (YYYY-MM-DD),Operational record date,Direct recorded date,Daily partition key
-units_sold,marketplace_reports,integer,Quantity of units ordered/delivered on that date,Sum of valid line items,Primary velocity driver
-price,marketplace_reports,float (INR),Average selling price per unit,Gross listed selling price,Subject to platform discounts
-revenue,marketplace_reports,float (INR),Total gross revenue generated,units_sold * price,Gross sales before returns
-ad_spend,marketplace_reports,float (INR),Total sponsored ad spend on platform,Direct advertising invoice cost,Includes sponsored products & brands
-ad_attributed_revenue,marketplace_reports,float (INR),Revenue directly attributed to ads (14d click-through),Platform attribution window,Ad-driven revenue component
-organic_revenue,calculated,float (INR),Revenue generated without paid ad clicks,revenue - ad_attributed_revenue,Floor at 0.00
-returns,marketplace_reports,integer,Units returned or refunded by buyers,Direct return log,Product quality indicator
-bsr,amazon_report,integer,Best Sellers Rank in category,Amazon category rank,Lower is better performance
-rank,flipkart_report,integer,Search/Category ranking position,Flipkart category position,Lower is better
-store_coverage,blinkit_report,float (percentage),Percentage of dark stores carrying live stock,Active Dark Stores / Total Dark Stores,Quick commerce metric
-city_rank,instamart_report,integer,Metro cluster average popularity rank,Swiggy category velocity rank,Lower is better
-inventory_level,marketplace_reports,integer,Current sellable stock available in fulfillment centers,Direct warehouse stock balance,Critical for availability
-units_in_transit,marketplace_reports,integer,Units dispatched to FC but not yet sellable,Replenishment inbound quantity,Pipeline buffer
-roas,calculated,float,Return on Advertising Spend,ad_attributed_revenue / ad_spend,Key ad efficiency ratio
-acos,calculated,float (percentage),Advertising Cost of Sales,(ad_spend / ad_attributed_revenue) * 100,Inverse of ROAS
-sales_velocity_7d,calculated,float,Average daily units sold over trailing 7 days,Sum(units_sold 7d) / 7,Velocity baseline
-inventory_days_cover,calculated,float,Estimated days before current stock reaches zero,inventory_level / sales_velocity_7d,Flagged if < 7 days
-availability_status,calculated,string,Sellable availability tier,"inventory <= 0: Out of Stock; inventory <= reorder: Low Stock; else: In Stock",Derived from product master
-rating,reviews_rating,float (1.0-5.0),Weighted average customer review rating,Direct aggregate customer rating,Product satisfaction health
-total_review_count,reviews_rating,integer,Cumulative lifetime review count,Platform review count,Social proof magnitude
-new_reviews_today,reviews_rating,integer,Customer reviews submitted on date,Daily delta reviews,Feedback velocity
-negative_reviews_today,reviews_rating,integer,Count of 1-star and 2-star reviews on date,Critical feedback tracker,Quality trigger
+field,definition
+availability_status,Derived from inventory and product reorder threshold
+sales_velocity_7d,Average daily sales over the trailing 7 days for the SKU
+inventory_days_cover,Current inventory divided by 7-day sales velocity
+ROAS,Revenue attributable to ads divided by advertising spend
+ACOS,"Advertising spend divided by ad-attributed revenue, expressed as %"
+platform_product_mapping,Maps marketplace-specific product IDs to a common internal product ID/SKU
