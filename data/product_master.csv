@@ -1,0 +1,7 @@
+Product ID,SKU,Product Name,Category,Reorder Threshold,Target Minimum Inventory
+P001,SLP-CMF-01,Sleepsia Contour Memory Foam Pillow,Memory Foam Pillows,150,500
+P002,SLP-COP-02,Sleepsia Cervical Orthopedic Pillow,Orthopedic Pillows,120,400
+P003,SLP-BGP-03,Sleepsia Bamboo Gel Infused Pillow,Gel Infused Pillows,100,350
+P004,SLP-MPS-04,Sleepsia Multi-Position Shredded Pillow,Shredded Foam Pillows,80,300
+P005,SLP-VEM-05,Sleepsia Premium Velvet Eye Mask & Pillow Set,Sleep Accessories,60,250
+P006,SLP-KSW-06,Sleepsia Knee Support Wedge Pillow,Ergonomic Cushions,50,200

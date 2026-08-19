@@ -1,0 +1,6 @@
+{
+  "name": "Sleepsia Marketplace Intelligence & Reporting",
+  "description": "Enterprise multi-agent e-commerce performance consolidation and daily executive reporting system for Sleepsia across Amazon, Flipkart, Blinkit, and Instamart.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
