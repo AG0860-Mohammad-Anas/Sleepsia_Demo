@@ -74,81 +74,100 @@ CRITICAL CONSTRAINTS & PRINCIPLES:
     };
 
     if (this.ai) {
-      try {
-        const response = await this.ai.models.generateContent({
-          model: 'gemini-3.7-flash',
-          contents: `Please generate a structured executive intelligence report based on the following verified operational data:\n${JSON.stringify(dataContext, null, 2)}`,
-          config: {
-            systemInstruction: systemPrompt,
-            responseMimeType: 'application/json',
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                executiveOverview: {
-                  type: Type.STRING,
-                  description: 'Comprehensive executive summary of the daily performance across all channels.',
-                },
-                platformObservations: {
-                  type: Type.STRING,
-                  description: 'Comparative analysis of marketplace channels (Amazon, Flipkart vs Quick Commerce Blinkit, Instamart).',
-                },
-                productPerformanceAnalysis: {
-                  type: Type.STRING,
-                  description: 'Analysis of product sales velocity, hero items, and lagging products.',
-                },
-                advertisingEfficiencyAnalysis: {
-                  type: Type.STRING,
-                  description: 'Detailed analysis of ad spend, ROAS, ACOS, and paid vs organic revenue ratios.',
-                },
-                inventoryAndRiskAnalysis: {
-                  type: Type.STRING,
-                  description: 'Inventory coverage, days of stock remaining, stockout risks, and transit replenishment.',
-                },
-                reviewsAndCustomerSentimentAnalysis: {
-                  type: Type.STRING,
-                  description: 'Customer sentiment health, ratings trends, return rate impact, and product quality remarks.',
-                },
-                salesVelocityInterpretation: {
-                  type: Type.STRING,
-                  description: '7-day rolling sales velocity trajectory and growth velocity.',
-                },
-                managementDecisionPoints: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
-                  description: 'List of 4-6 actionable decision points for management review regarding inventory and advertising.',
-                },
-                dataIntegrityStatement: {
-                  type: Type.STRING,
-                  description: 'Confirmation that all figures are deterministically calculated from source records.',
-                },
-              },
-              required: [
-                'executiveOverview',
-                'platformObservations',
-                'productPerformanceAnalysis',
-                'advertisingEfficiencyAnalysis',
-                'inventoryAndRiskAnalysis',
-                'reviewsAndCustomerSentimentAnalysis',
-                'salesVelocityInterpretation',
-                'managementDecisionPoints',
-                'dataIntegrityStatement',
-              ],
-            },
-          },
-        });
+      // List of candidate models to try in order of preference
+      const candidateModels = [
+        'gemini-3.7-flash',
+        'gemini-3.1-flash-lite',
+        'gemini-flash-latest',
+      ];
 
-        const rawText = response.text;
-        if (rawText) {
-          const parsed = JSON.parse(rawText) as AIReportIntelligence;
-          parsed.aiModelUsed = 'Gemini 3.7 Flash';
-          return parsed;
+      for (const modelName of candidateModels) {
+        try {
+          const response = await this.ai.models.generateContent({
+            model: modelName,
+            contents: `Please generate a structured executive intelligence report based on the following verified operational data:\n${JSON.stringify(dataContext, null, 2)}`,
+            config: {
+              systemInstruction: systemPrompt,
+              responseMimeType: 'application/json',
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  executiveOverview: {
+                    type: Type.STRING,
+                    description: 'Comprehensive executive summary of the daily performance across all channels.',
+                  },
+                  platformObservations: {
+                    type: Type.STRING,
+                    description: 'Comparative analysis of marketplace channels (Amazon, Flipkart vs Quick Commerce Blinkit, Instamart).',
+                  },
+                  productPerformanceAnalysis: {
+                    type: Type.STRING,
+                    description: 'Analysis of product sales velocity, hero items, and lagging products.',
+                  },
+                  advertisingEfficiencyAnalysis: {
+                    type: Type.STRING,
+                    description: 'Detailed analysis of ad spend, ROAS, ACOS, and paid vs organic revenue ratios.',
+                  },
+                  inventoryAndRiskAnalysis: {
+                    type: Type.STRING,
+                    description: 'Inventory coverage, days of stock remaining, stockout risks, and transit replenishment.',
+                  },
+                  reviewsAndCustomerSentimentAnalysis: {
+                    type: Type.STRING,
+                    description: 'Customer sentiment health, ratings trends, return rate impact, and product quality remarks.',
+                  },
+                  salesVelocityInterpretation: {
+                    type: Type.STRING,
+                    description: '7-day rolling sales velocity trajectory and growth velocity.',
+                  },
+                  managementDecisionPoints: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                    description: 'List of 4-6 actionable decision points for management review regarding inventory and advertising.',
+                  },
+                  dataIntegrityStatement: {
+                    type: Type.STRING,
+                    description: 'Confirmation that all figures are deterministically calculated from source records.',
+                  },
+                },
+                required: [
+                  'executiveOverview',
+                  'platformObservations',
+                  'productPerformanceAnalysis',
+                  'advertisingEfficiencyAnalysis',
+                  'inventoryAndRiskAnalysis',
+                  'reviewsAndCustomerSentimentAnalysis',
+                  'salesVelocityInterpretation',
+                  'managementDecisionPoints',
+                  'dataIntegrityStatement',
+                ],
+              },
+            },
+          });
+
+          const rawText = response.text;
+          if (rawText) {
+            const parsed = JSON.parse(rawText) as AIReportIntelligence;
+            parsed.aiModelUsed = `Gemini (${modelName})`;
+            return parsed;
+          }
+        } catch (err: any) {
+          const isDemandSpike =
+            err?.message?.includes('503') ||
+            err?.message?.includes('high demand') ||
+            err?.message?.includes('UNAVAILABLE') ||
+            err?.status === 503;
+
+          console.warn(
+            `Model ${modelName} ${
+              isDemandSpike ? 'is experiencing temporary high demand' : 'failed'
+            }. Trying fallback...`
+          );
         }
-      } catch (err) {
-        console.error('Gemini API call failed, falling back to deterministic intelligence generator:', err);
       }
     }
 
-    // Deterministic fallback intelligence generator (ensures 100% reliability)
+    // Deterministic fallback intelligence generator (ensures 100% reliable system uptime)
     return this.buildDeterministicIntelligence(consolidatedData);
   }
 
@@ -176,7 +195,7 @@ CRITICAL CONSTRAINTS & PRINCIPLES:
     return {
       executiveOverview: `For ${consolidatedData.reportDate}, Sleepsia achieved gross cross-platform revenue of ₹${kpis.totalRevenue.toLocaleString()} across ${kpis.totalSales.toLocaleString()} units sold. Total advertising expenditure stood at ₹${kpis.totalAdSpend.toLocaleString()}, delivering an overall ROAS of ${kpis.overallRoas}x (ACOS: ${kpis.overallAcos}%). Amazon and Flipkart continue to serve as primary volume drivers, while quick-commerce channels (Blinkit and Instamart) deliver strong localized sales velocity with tight inventory turnaround cycles.`,
       platformObservations: `Amazon led cross-marketplace performance with ₹${amazon?.revenue.toLocaleString() ?? '0'} in revenue (${amazon?.revenueShare ?? '0'}% share, ${amazon?.roas ?? '0'}x ROAS). Flipkart generated ₹${flipkart?.revenue.toLocaleString() ?? '0'} (${flipkart?.revenueShare ?? '0'}% share, ${flipkart?.roas ?? '0'}x ROAS). In the quick-commerce segment, Blinkit contributed ₹${blinkit?.revenue.toLocaleString() ?? '0'} and Instamart contributed ₹${instamart?.revenue.toLocaleString() ?? '0'}. Quick-commerce demand demonstrates steady consumer adoption for sleep and wellness essentials with rapid same-day fulfillment.`,
-      productPerformanceAnalysis: `The top-performing SKU was '${topProduct?.productName ?? 'Hero Product'}' (SKU: ${topProduct?.sku}), accounting for ₹${topProduct?.totalRevenue.toLocaleString() ?? '0'} in gross revenue across all 4 platforms with ${topProduct?.totalUnitsSold ?? 0} units delivered. The highest ad-efficiency product was '${topRoasProduct?.productName ?? 'P001'}' with an ad ROAS of ${topRoasProduct?.overallRoas ?? '0'}x. Lower-volume items such as '${products[products.length - 1]?.productName ?? 'Accessories'}' maintained consistent healthy margins despite lower total sales velocity.`,
+      productPerformanceAnalysis: `The top-performing SKU was '${topProduct?.productName ?? 'Hero Product'}' (SKU: ${topProduct?.sku}), accounting for ₹${topProduct?.totalRevenue.toLocaleString() ?? '0'} in gross revenue across all 4 platforms with ${topProduct?.totalUnitsSold ?? 0} units delivered. The highest ad-efficiency product was '${topRoasProduct?.productName ?? 'P001'}' with an ad ROAS of ${topRoasProduct?.overallRoas ?? '0'}x. Lower-volume items maintained consistent healthy margins despite lower total sales velocity.`,
       advertisingEfficiencyAnalysis: `Total advertising spend of ₹${kpis.totalAdSpend.toLocaleString()} yielded ₹${kpis.totalAdAttributedRevenue.toLocaleString()} in ad-attributed revenue, representing ${((kpis.totalAdAttributedRevenue / kpis.totalRevenue) * 100).toFixed(1)}% of total daily business. Organic revenue was recorded at ₹${kpis.totalOrganicRevenue.toLocaleString()} (${((kpis.totalOrganicRevenue / kpis.totalRevenue) * 100).toFixed(1)}% organic ratio), reflecting strong organic brand recall and search visibility across marketplace algorithms.`,
       inventoryAndRiskAnalysis: `A total of ${alerts.length} inventory notification(s) were flagged. ${outOfStockAlerts.length > 0 ? `Critical: Stockout recorded for ${outOfStockAlerts.map((a) => `${a.productName} on ${a.platform}`).join(', ')}.` : 'No complete channel stockouts recorded.'} ${lowStockAlerts.length > 0 ? `Additionally, ${lowStockAlerts.length} product-channel pairs are operating below safety reorder thresholds.` : 'All other inventory levels remain within operational buffers.'}`,
       reviewsAndCustomerSentimentAnalysis: `Customer satisfaction remains high with an average rating of 4.38/5.0 across catalog SKUs. Total returns across platforms were ${kpis.totalReturns} units, yielding a low blended return rate of ${kpis.returnRate}%. Memory foam and cervical pillows maintained positive review momentum with zero severe quality-related return spikes.`,
@@ -188,7 +207,7 @@ CRITICAL CONSTRAINTS & PRINCIPLES:
         `Monitor dark-store coverage rates on Blinkit and Instamart to capitalize on same-day regional consumer delivery demand.`,
       ],
       dataIntegrityStatement: `All performance metrics, ROAS ratios, velocities, and availability statuses in this report are deterministically calculated from source records. AI generation was restricted to narrative synthesis, trend summarization, and qualitative management interpretation.`,
-      aiModelUsed: this.ai ? 'Gemini 3.7 Flash' : 'Deterministic Intelligence Engine (Rule-Based)',
+      aiModelUsed: 'Deterministic Intelligence Engine (Rule-Based)',
     };
   }
 }
