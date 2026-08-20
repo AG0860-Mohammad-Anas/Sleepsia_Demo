@@ -241,9 +241,52 @@ export interface AIReportIntelligence {
   aiModelUsed: string;
 }
 
+export interface CompetitorBenchmarkDaily {
+  date: string;
+  brand: string;
+  category: string;
+  topProduct: string;
+  avgPrice: number;
+  estDailyUnits: number;
+  estDailyRevenue: number;
+  avgRating: number;
+  totalReviews: number;
+  marketSharePct: number;
+  avgBsr: number;
+  estAdSpend: number;
+  sentimentPositivePct: number;
+  primaryChannel: string;
+}
+
+export interface CompetitorMasterProfile {
+  brandId: string;
+  brandName: string;
+  tagline: string;
+  pricingTier: string;
+  flagshipCategory: string;
+  primaryChannels: string;
+  estAnnualPillowRevenueCr: number;
+  marketShareRank: number;
+  strengths: string;
+  vulnerabilities: string;
+}
+
+export interface CompetitorComparisonReport {
+  date: string;
+  benchmarks: CompetitorBenchmarkDaily[];
+  historical14Days: CompetitorBenchmarkDaily[];
+  profiles: CompetitorMasterProfile[];
+  sleepsiaMarketShare: number;
+  marketLeader: string;
+  pricePositioningIndex: string;
+  ratingAdvantage: number;
+  insights: string[];
+}
+
 export interface FullDailyReportResponse {
   consolidatedData: ConsolidatedReportData;
   aiIntelligence: AIReportIntelligence;
+  competitorComparison: CompetitorComparisonReport;
   isSimulatedDemo: true;
   futureMigrationNotes: {
     amazon: string;

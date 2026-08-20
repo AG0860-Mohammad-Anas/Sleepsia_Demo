@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Header } from './components/Header.tsx';
-import { AgentWorkflowVisualizer } from './components/AgentWorkflowVisualizer.tsx';
+import { Header, MainTabType } from './components/Header.tsx';
 import { AiObservationsCard } from './components/AiObservationsCard.tsx';
 import { KpiMetricsSection } from './components/KpiMetricsSection.tsx';
 import { PlatformComparisonTable } from './components/PlatformComparisonTable.tsx';
@@ -10,10 +9,20 @@ import { InventoryAlertsBanner } from './components/InventoryAlertsBanner.tsx';
 import { ManagementReportModal } from './components/ManagementReportModal.tsx';
 import { ArchitectureModal } from './components/ArchitectureModal.tsx';
 import { AgentPayloadModal } from './components/AgentPayloadModal.tsx';
+import { AgentWorkflowModal } from './components/AgentWorkflowModal.tsx';
+import { CompetitorComparisonSection } from './components/CompetitorComparisonSection.tsx';
 import { FullDailyReportResponse } from './types/reporting.ts';
 import {
   AlertCircle,
   Layers,
+  Sparkles,
+  ArrowRight,
+  TrendingUp,
+  Package,
+  Store,
+  Trophy,
+  ShieldCheck,
+  Zap,
 } from 'lucide-react';
 
 export function App() {
@@ -22,10 +31,12 @@ export function App() {
   const [reportData, setReportData] = useState<FullDailyReportResponse | null>(null);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<MainTabType>('overview');
 
   // Modals
   const [showReportModal, setShowReportModal] = useState<boolean>(false);
   const [showArchitectureModal, setShowArchitectureModal] = useState<boolean>(false);
+  const [showAgentLogsModal, setShowAgentLogsModal] = useState<boolean>(false);
   const [payloadModal, setPayloadModal] = useState<{ title: string; payload: any } | null>(null);
 
   // System metadata
@@ -173,9 +184,11 @@ export function App() {
     URL.revokeObjectURL(url);
   };
 
+  const marketShare = reportData?.competitorComparison?.sleepsiaMarketShare || 38.8;
+
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50 text-slate-900 font-sans antialiased select-none">
-      {/* Header */}
+    <div className="flex flex-col min-h-screen bg-slate-50 text-slate-900 font-sans antialiased">
+      {/* Modern Simple Header */}
       <Header
         selectedDate={selectedDate}
         availableDates={availableDates}
@@ -185,104 +198,196 @@ export function App() {
         }}
         onRunReport={() => runDailyReport(selectedDate)}
         isRunning={isRunning}
+        activeTab={activeTab}
+        onTabChange={(tab) => setActiveTab(tab)}
         onOpenReportModal={() => setShowReportModal(true)}
         onOpenArchitectureModal={() => setShowArchitectureModal(true)}
+        onOpenAgentLogsModal={() => setShowAgentLogsModal(true)}
         onDownloadDocx={handleDownloadDocx}
         onExportCsv={handleExportCsv}
         isReportAvailable={Boolean(reportData)}
+        marketShare={marketShare}
       />
 
-      {/* Main 12-Column High-Density Grid */}
-      <main className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-4 p-4">
+      {/* Main Content Area */}
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
         {error && (
-          <div className="col-span-12 bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded-lg flex items-center space-x-2 text-xs">
-            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-            <span>Error executing workflow: {error}</span>
+          <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-xl flex items-center space-x-3 text-sm">
+            <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />
+            <div>
+              <p className="font-bold">Error loading marketplace data</p>
+              <p className="text-xs text-rose-700">{error}</p>
+            </div>
           </div>
         )}
 
         {reportData && (
           <>
-            {/* Left Column (Workflow Status & AI Observations) */}
-            <div className="col-span-12 lg:col-span-3 flex flex-col gap-4">
-              {/* Agent Workflow Status */}
-              <AgentWorkflowVisualizer
-                logs={reportData.consolidatedData.workflowLogs}
-                specialistOutputs={reportData.consolidatedData.specialistOutputs}
-                isRunning={isRunning}
-                onInspectPayload={(title, payload) => setPayloadModal({ title, payload })}
-                reportDate={reportData.consolidatedData.reportDate}
-              />
-
-              {/* AI Observations Dark Card */}
-              <AiObservationsCard
-                ai={reportData.aiIntelligence}
-                onOpenReportModal={() => setShowReportModal(true)}
-              />
-            </div>
-
-            {/* Right Column (KPI Cards, Platform Cards, Performance Table, Scorecard) */}
-            <div className="col-span-12 lg:col-span-9 flex flex-col gap-3">
-              {/* Top Banner Notice */}
-              <div className="bg-white border border-slate-200 rounded-lg p-2.5 flex items-center justify-between text-xs text-slate-700 shadow-2xs">
-                <div className="flex items-center space-x-2">
-                  <span className="px-1.5 py-0.2 bg-blue-600 text-white rounded text-[9px] font-bold">
-                    DEMO
-                  </span>
-                  <span className="text-[11px] text-slate-600">
-                    Synthetic marketplace intelligence active. Math is deterministic; Gemini AI generates qualitative commentary.
-                  </span>
-                </div>
-                <button
-                  onClick={() => setShowArchitectureModal(true)}
-                  className="text-blue-600 hover:text-blue-800 text-[11px] font-semibold flex items-center gap-1 shrink-0 ml-2"
-                >
-                  <Layers className="w-3 h-3" />
-                  API Migration Spec
-                </button>
+            {/* Quick Context Strip */}
+            <div className="bg-white border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs text-slate-600">
+                <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Synced Snapshot
+                </span>
+                <span>
+                  Reporting for <b>{selectedDate}</b> • 4 Marketplaces & Competitor Benchmarks Active
+                </span>
               </div>
 
-              {/* Inventory Stockout Alerts (if any) */}
-              <InventoryAlertsBanner alerts={reportData.consolidatedData.inventoryAlerts} />
-
-              {/* 6 KPI Cards Grid */}
-              <KpiMetricsSection data={reportData.consolidatedData} />
-
-              {/* 4 Platform Summary Cards & Benchmark Table */}
-              <PlatformComparisonTable
-                platforms={reportData.consolidatedData.platformPerformance}
-              />
-
-              {/* Cross-Platform Product Performance Matrix */}
-              <ProductPerformanceMatrix
-                products={reportData.consolidatedData.productPerformance}
-                totalRevenue={reportData.consolidatedData.kpis.totalRevenue}
-              />
-
-              {/* Product Health & Sentiment Scorecard */}
-              <ProductHealthSection
-                productHealth={reportData.consolidatedData.productHealth}
-              />
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setActiveTab('competitors')}
+                  className="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200 transition"
+                >
+                  <Trophy className="w-3.5 h-3.5 text-amber-500" />
+                  Compare Competitors
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
             </div>
+
+            {/* Inventory Stockout Alerts (always prominent if stock is low) */}
+            {reportData.consolidatedData.inventoryAlerts.length > 0 && (
+              <InventoryAlertsBanner alerts={reportData.consolidatedData.inventoryAlerts} />
+            )}
+
+            {/* TAB 1: EXECUTIVE OVERVIEW */}
+            {activeTab === 'overview' && (
+              <div className="space-y-6 animate-fadeIn">
+                {/* 6 Key Performance Metric Cards */}
+                <KpiMetricsSection data={reportData.consolidatedData} />
+
+                {/* AI Executive Highlights & Management Action Points */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                  <div className="lg:col-span-8">
+                    <AiObservationsCard
+                      ai={reportData.aiIntelligence}
+                      onOpenReportModal={() => setShowReportModal(true)}
+                    />
+                  </div>
+
+                  {/* Quick Shortcut Card to Competitor & Channel Analysis */}
+                  <div className="lg:col-span-4 flex flex-col gap-4">
+                    {/* Competitor Teaser Card */}
+                    <div
+                      onClick={() => setActiveTab('competitors')}
+                      className="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-2xl p-5 shadow-xs cursor-pointer hover:shadow-md transition group border border-indigo-800/40 relative overflow-hidden"
+                    >
+                      <div className="flex justify-between items-start mb-3">
+                        <span className="px-2 py-0.5 rounded-full bg-yellow-400/20 text-yellow-300 text-[10px] font-bold uppercase tracking-wider border border-yellow-400/30 flex items-center gap-1">
+                          <Trophy className="w-3 h-3 text-yellow-300" />
+                          Market Leader
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-white/60 group-hover:translate-x-1 transition" />
+                      </div>
+                      <h3 className="text-base font-bold">Sleepsia vs Competitors</h3>
+                      <p className="text-xs text-indigo-200 mt-1 leading-relaxed">
+                        Sleepsia leads cervical memory foam with <b>{marketShare}%</b> daily share vs Wakefit (24.2%) and The Sleep Company (17.2%).
+                      </p>
+                      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                        <span className="text-indigo-300 font-medium">View Detailed Graphs</span>
+                        <span className="font-extrabold text-amber-300">4.5★ Rating</span>
+                      </div>
+                    </div>
+
+                    {/* Channel Breakdown Teaser */}
+                    <div
+                      onClick={() => setActiveTab('channels')}
+                      className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs cursor-pointer hover:border-blue-300 hover:shadow-md transition group"
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                          <Store className="w-4 h-4" />
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition" />
+                      </div>
+                      <h4 className="text-sm font-bold text-slate-800">4 Marketplace Channels</h4>
+                      <p className="text-xs text-slate-500 mt-1">
+                        Amazon & Flipkart marketplaces + Blinkit & Instamart quick-commerce.
+                      </p>
+                      <div className="mt-3 pt-2 border-t border-slate-100 flex justify-between text-xs text-slate-600 font-semibold">
+                        <span>Top Channel: Amazon (₹16.7L)</span>
+                        <span className="text-blue-600">3.4x ROAS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Platform Summary Table */}
+                <PlatformComparisonTable
+                  platforms={reportData.consolidatedData.platformPerformance}
+                />
+
+                {/* Top Products Quick View */}
+                <ProductPerformanceMatrix
+                  products={reportData.consolidatedData.productPerformance}
+                  totalRevenue={reportData.consolidatedData.kpis.totalRevenue}
+                />
+              </div>
+            )}
+
+            {/* TAB 2: SLEEPSIA VS COMPETITORS */}
+            {activeTab === 'competitors' && (
+              <CompetitorComparisonSection
+                data={reportData.competitorComparison}
+                reportDate={reportData.consolidatedData.reportDate}
+              />
+            )}
+
+            {/* TAB 3: MARKETPLACE CHANNELS */}
+            {activeTab === 'channels' && (
+              <div className="space-y-6 animate-fadeIn">
+                <PlatformComparisonTable
+                  platforms={reportData.consolidatedData.platformPerformance}
+                />
+              </div>
+            )}
+
+            {/* TAB 4: PRODUCTS & STOCK */}
+            {activeTab === 'products' && (
+              <div className="space-y-6 animate-fadeIn">
+                <ProductPerformanceMatrix
+                  products={reportData.consolidatedData.productPerformance}
+                  totalRevenue={reportData.consolidatedData.kpis.totalRevenue}
+                />
+              </div>
+            )}
+
+            {/* TAB 5: CUSTOMER SENTIMENT & REVIEWS */}
+            {activeTab === 'sentiment' && (
+              <div className="space-y-6 animate-fadeIn">
+                <ProductHealthSection
+                  productHealth={reportData.consolidatedData.productHealth}
+                />
+              </div>
+            )}
           </>
         )}
       </main>
 
-      {/* Enterprise High Density Footer */}
-      <footer className="px-6 py-2.5 bg-white border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-400 gap-2">
-        <div className="flex items-center gap-4">
-          <span>System ID: SLEEPSIA-AI-X1</span>
-          <span>● Agent Status: {isRunning ? 'Orchestrating Workflow...' : 'Synchronized'}</span>
-          <span>● Snapshot: {selectedDate}</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <span className="italic">
-            This prototype uses synthetic marketplace data for demonstration purposes.
-          </span>
-          <div className="flex gap-1 items-center">
-            <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-            <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-            <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+      {/* Modern Clean Footer */}
+      <footer className="px-6 py-4 bg-white border-t border-slate-200 mt-auto">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-3">
+          <div className="flex items-center gap-3">
+            <span className="font-bold text-slate-700">Sleepsia E-Commerce Intelligence</span>
+            <span>•</span>
+            <span>Simulated Marketplace & Competitor Data</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setShowArchitectureModal(true)}
+              className="text-blue-600 hover:underline font-semibold"
+            >
+              API Architecture Spec
+            </button>
+            <button
+              onClick={() => setShowAgentLogsModal(true)}
+              className="text-indigo-600 hover:underline font-semibold"
+            >
+              Agent Execution Logs
+            </button>
           </div>
         </div>
       </footer>
@@ -302,6 +407,17 @@ export function App() {
           syntheticFiles={syntheticMeta.files}
           productMaster={syntheticMeta.productMaster}
           platformMappings={syntheticMeta.platformMappings}
+        />
+      )}
+
+      {showAgentLogsModal && reportData && (
+        <AgentWorkflowModal
+          logs={reportData.consolidatedData.workflowLogs}
+          specialistOutputs={reportData.consolidatedData.specialistOutputs}
+          isRunning={isRunning}
+          onInspectPayload={(title, payload) => setPayloadModal({ title, payload })}
+          reportDate={reportData.consolidatedData.reportDate}
+          onClose={() => setShowAgentLogsModal(false)}
         />
       )}
 

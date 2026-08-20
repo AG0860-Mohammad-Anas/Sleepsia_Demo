@@ -70,6 +70,17 @@ async function startServer() {
     }
   });
 
+  // Competitor benchmarks endpoint
+  app.get('/api/competitors', (req, res) => {
+    try {
+      const targetDate = (req.query.date as string) || '2026-08-19';
+      const data = dataLoader.loadCompetitorComparison(targetDate);
+      res.json(data);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   // Synthetic files metadata & dictionary inspection
   app.get('/api/synthetic-files', (req, res) => {
     try {
@@ -82,6 +93,8 @@ async function startServer() {
           { name: 'blinkit_report_14d.csv', type: 'Quick-commerce dark store metrics (14 days)' },
           { name: 'instamart_report_14d.csv', type: 'Quick-commerce metro metrics (14 days)' },
           { name: 'reviews_rating_data_14d.csv', type: 'Customer reviews & sentiment (14 days)' },
+          { name: 'competitor_benchmarks_14d.csv', type: 'Sleepsia vs Wakefit, Sleep Company, Flo, Duroflex (14 days)' },
+          { name: 'competitor_master.csv', type: 'Competitor brand profiles, tiering & market positioning' },
           { name: 'product_master.csv', type: 'Product catalog & reorder thresholds' },
           { name: 'platform_product_mapping.csv', type: 'ASIN/FSN/SKU multi-channel mapping' },
           { name: 'data_dictionary.csv', type: 'Operational field definitions & formulas' },

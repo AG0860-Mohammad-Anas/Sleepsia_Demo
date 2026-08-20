@@ -105,7 +105,10 @@ export class SleepsiaReportingSupervisor {
       },
     });
 
-    // Step 8: Final Report Completion
+    // Step 8: Competitor Benchmarking Intelligence
+    const competitorComparison = this.loader.loadCompetitorComparison(targetDate);
+
+    // Step 9: Final Report Completion
     logs.push({
       stepId: 'step-8-complete',
       agentName: 'Sleepsia Reporting Supervisor',
@@ -125,6 +128,7 @@ export class SleepsiaReportingSupervisor {
     return {
       consolidatedData,
       aiIntelligence,
+      competitorComparison,
       isSimulatedDemo: true,
       futureMigrationNotes: {
         amazon: 'In production, replace amazon_report_14d.csv with Amazon Selling Partner API (SP-API: Reports API & Sponsored Products API). Agent contract remains identical.',

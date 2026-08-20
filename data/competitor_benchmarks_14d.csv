@@ -1,0 +1,71 @@
+date,brand,category,top_product,avg_price_inr,est_daily_units,est_daily_revenue,avg_rating,total_reviews,market_share_pct,avg_bsr,est_ad_spend_inr,sentiment_positive_pct,primary_channel
+2026-08-06,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,510,713490,4.4,14200,28.5,840,94000,88,Amazon
+2026-08-06,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,620,557380,4.3,28400,34.6,620,78000,84,Amazon
+2026-08-06,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,240,479760,4.5,9800,13.4,1240,89000,91,Amazon
+2026-08-06,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,280,363720,4.2,6400,15.6,1580,42000,81,Flipkart
+2026-08-06,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,140,167860,4.1,4900,7.9,2100,31000,79,Flipkart
+2026-08-07,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,525,734475,4.4,14230,28.8,825,96000,88,Amazon
+2026-08-07,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,615,552885,4.3,28450,33.8,630,79000,84,Amazon
+2026-08-07,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,255,509745,4.5,9830,14.0,1210,91000,91,Amazon
+2026-08-07,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,275,357225,4.2,6420,15.1,1600,41000,80,Flipkart
+2026-08-07,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,150,179850,4.1,4920,8.3,2050,32000,79,Flipkart
+2026-08-08,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,540,755460,4.4,14260,29.1,810,98000,89,Amazon
+2026-08-08,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,610,548390,4.3,28500,32.9,640,78000,83,Amazon
+2026-08-08,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,260,519740,4.5,9860,14.0,1190,92000,91,Amazon
+2026-08-08,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,290,376710,4.2,6440,15.6,1550,43000,81,Flipkart
+2026-08-08,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,155,185845,4.1,4940,8.4,2010,33000,79,Flipkart
+2026-08-09,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,555,776445,4.4,14290,29.5,795,99000,89,Amazon
+2026-08-09,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,605,543895,4.3,28550,32.1,650,77000,83,Amazon
+2026-08-09,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,270,539730,4.5,9890,14.3,1170,94000,92,Amazon
+2026-08-09,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,300,389700,4.2,6470,15.9,1520,44000,82,Flipkart
+2026-08-09,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,152,182248,4.1,4960,8.2,2040,32000,80,Flipkart
+2026-08-10,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,570,797430,4.4,14320,30.0,780,102000,89,Amazon
+2026-08-10,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,600,539400,4.3,28600,31.6,660,76000,83,Amazon
+2026-08-10,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,275,549725,4.5,9920,14.5,1150,95000,92,Amazon
+2026-08-10,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,305,396195,4.2,6500,16.0,1490,45000,82,Flipkart
+2026-08-10,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,150,179850,4.1,4980,7.9,2060,31000,80,Flipkart
+2026-08-11,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,585,818415,4.4,14350,30.5,760,105000,90,Amazon
+2026-08-11,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,590,530410,4.3,28650,30.8,670,75000,84,Amazon
+2026-08-11,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,285,569715,4.5,9950,14.9,1130,97000,92,Amazon
+2026-08-11,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,310,402690,4.2,6530,16.2,1460,46000,82,Flipkart
+2026-08-11,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,148,177452,4.1,5000,7.6,2090,30000,80,Flipkart
+2026-08-12,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,600,839400,4.4,14390,31.1,745,108000,90,Amazon
+2026-08-12,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,585,525915,4.3,28700,30.3,680,74000,84,Amazon
+2026-08-12,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,290,579710,4.5,9980,15.0,1110,99000,93,Amazon
+2026-08-12,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,315,409185,4.2,6560,16.3,1430,47000,83,Flipkart
+2026-08-12,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,140,167860,4.1,5020,7.3,2120,29000,80,Flipkart
+2026-08-13,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,620,867380,4.4,14430,31.8,730,112000,90,Amazon
+2026-08-13,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,580,521420,4.3,28750,29.7,690,73000,84,Amazon
+2026-08-13,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,300,599700,4.5,10020,15.4,1090,102000,93,Amazon
+2026-08-13,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,310,402690,4.2,6590,15.9,1410,48000,83,Flipkart
+2026-08-13,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,140,167860,4.1,5040,7.2,2150,28000,79,Flipkart
+2026-08-14,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,645,902355,4.4,14470,32.7,710,116000,91,Amazon
+2026-08-14,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,575,516925,4.3,28800,29.1,705,72000,84,Amazon
+2026-08-14,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,310,619690,4.5,10060,15.7,1070,105000,93,Amazon
+2026-08-14,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,305,396195,4.2,6620,15.5,1390,49000,83,Flipkart
+2026-08-14,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,138,165462,4.1,5060,7.0,2180,28000,79,Flipkart
+2026-08-15,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,690,965310,4.5,14520,33.8,680,124000,91,Amazon
+2026-08-15,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,595,534905,4.3,28860,29.2,710,75000,85,Amazon
+2026-08-15,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,325,649675,4.5,10110,15.9,1040,110000,93,Amazon
+2026-08-15,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,310,402690,4.2,6660,15.2,1370,51000,83,Flipkart
+2026-08-15,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,120,143880,4.1,5080,5.9,2240,26000,78,Flipkart
+2026-08-16,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,720,1007280,4.5,14570,34.8,650,130000,91,Amazon
+2026-08-16,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,580,521420,4.3,28920,28.0,725,74000,85,Amazon
+2026-08-16,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,340,679660,4.5,10160,16.4,1010,115000,94,Amazon
+2026-08-16,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,315,409185,4.2,6700,15.2,1350,52000,83,Flipkart
+2026-08-16,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,115,137885,4.1,5100,5.6,2290,25000,78,Flipkart
+2026-08-17,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,760,1063240,4.5,14630,35.9,620,138000,92,Amazon
+2026-08-17,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,570,512430,4.3,28980,26.9,740,73000,84,Amazon
+2026-08-17,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,355,709645,4.5,10220,16.8,980,120000,94,Amazon
+2026-08-17,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,320,415680,4.2,6740,15.1,1330,54000,84,Flipkart
+2026-08-17,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,110,131890,4.1,5120,5.3,2350,24000,77,Flipkart
+2026-08-18,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,810,1133190,4.5,14690,37.2,590,145000,92,Amazon
+2026-08-18,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,560,503440,4.3,29040,25.7,760,71000,84,Amazon
+2026-08-18,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,370,739630,4.5,10280,17.0,950,125000,94,Amazon
+2026-08-18,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,325,422175,4.2,6780,14.9,1310,55000,84,Flipkart
+2026-08-18,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,110,131890,4.1,5140,5.2,2390,23000,77,Flipkart
+2026-08-19,Sleepsia,Cervical Memory Foam,Bamboo Cervical Pain Relief Pillow,1399,880,1231120,4.5,14760,38.8,540,158000,93,Amazon
+2026-08-19,Wakefit,Cervical Memory Foam,Wakefit Sleeping Pillow Hollow Fiber,899,550,494450,4.3,29100,24.2,780,70000,83,Amazon
+2026-08-19,The Sleep Company,Cervical Memory Foam,SmartGRID Orthopedic Cervical Pillow,1999,390,779610,4.5,10350,17.2,920,132000,95,Amazon
+2026-08-19,Flo,Cervical Memory Foam,Flo Adjustable Memory Foam Pillow,1299,330,428670,4.2,6820,14.5,1290,56000,84,Flipkart
+2026-08-19,Duroflex,Cervical Memory Foam,Duroflex Neck Balance Pillow,1199,115,137885,4.1,5160,5.3,2420,24000,76,Flipkart
